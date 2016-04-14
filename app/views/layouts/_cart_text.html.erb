@@ -1,0 +1,9 @@
+<% if current_cart %>
+  <div class="cart-top">
+    <% unless current_cart.total_price == 0 %>
+      <%= number_to_currency(current_cart.total_price) %>
+      <%= link_to image_tag("http://simpleicon.com/wp-content/uploads/Shopping-Cart-10.png", size: "35x35"), cart_path(current_cart), class: "btn-custom" %>
+    <% end %>
+    </div>
+<% end %>
+

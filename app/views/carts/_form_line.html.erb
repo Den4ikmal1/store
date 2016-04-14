@@ -1,0 +1,4 @@
+<%= simple_nested_form_for quantity, remote: true do |f| %>
+  <%= f.input :quantity, :input_html => { :style => 'width: 90px', min: 1 }, label: false %>
+  <%= f.button :submit, 'Update', :class => 'btn-custom2' %> 
+<% end %>

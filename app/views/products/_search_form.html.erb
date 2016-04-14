@@ -1,0 +1,6 @@
+<% content_for :search do %>  
+  <% search_form_for search, :builder => SimpleForm::FormBuilder, class: 'form-inline'  do |f| %>  
+    <%= f.input_field :title_cont, class: "form-control", placeholder: 'Title..' %>
+    <%= f.button :submit, "Search" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<div id="products">
+  <%= render "search_form", search: @search %>
+  <%= render "products/products", products: @products %>
+</div>
+<script>
+$(function(){
+   $('.pagination a').attr('data-remote', 'true')
+});
+</script>

@@ -1,0 +1,11 @@
+<h1>New order</h1>
+<p>
+  <h3><%= @order.name %></h3>
+  <h3><%= @order.phone %></h3>
+  <h4>Details:</h4>
+  <% @order.line_items.each do |item| %>
+        <td><h4><%= item.product.title %></h4></td>
+        <td><h4><%= item.total_price %></h4></td>
+        <td><h4><%= item.quantity %></h4></td>
+  <% end %>
+</p>

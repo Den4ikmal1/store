@@ -1,0 +1,11 @@
+<%= simple_nested_form_for @product, :html => { :multipart => true } do |f| %>
+  <%= f.error_notification %>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>
+  <%= f.input :title, label: "Product Title" %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.fields_for :photos, @product.photos.build do |a| %>
+    <%=  a.file_field :file, multiple: true, name: "product[photos_attributes][][file]" %>
+   <% end %>
+  <%= f.button :submit, :class => 'btn-custom2' %>
+<% end %>

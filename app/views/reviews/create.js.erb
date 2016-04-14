@@ -1,0 +1,8 @@
+<% if @review.errors.present? %>
+  <% @review.errors.full_messages.each do |message| %>
+    $('.review_errors').html('<%= j message %>' );
+  <% end %>
+<% else %>
+  $('#reviewss').html('<%= j render 'products/review', review: @reviews %>');
+
+<% end %>

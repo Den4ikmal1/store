@@ -1,0 +1,33 @@
+<div id="line">
+  <h2>Your Cart</h2>
+  <div class="col-md-7">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Name:</th>
+        <th>Price:</th>
+        <th>Quantity:</th>
+        <th>Delete:</th>
+    </tr>
+    <% cart.line_items.each do |item| %>
+      <tr id="item_<%= item.id %>">
+        <td><h4><%= item.product.title %></h4></td>
+        <td><h4><%= number_to_currency(item.total_price) %></h4></td>
+        <td><%= render 'carts/form_line', quantity: item %></td>
+        <td><%= button_to "Delete", line_item_path(item) , method: :delete, data: { confirm: "Are you sure?", }, :class => 'btn-custom2' %></td>
+        </tr>
+    <% end %>
+    </table>
+    <p><%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn-custom2' %></p>
+  </div>
+  <div class="col-md-4">
+    <div class="total_price">
+    <div class="text-center">
+       <p><%= link_to 'Continue Shops', root_path, :class => 'btn-custom' %></p>
+      <h3>Total price:</h3>
+      <h3><%= number_to_currency(@cart.total_price) %></h3></br>
+      <%= link_to "Checkout", new_order_path, :class => 'btn-custom' %></br>     
+    </div>
+    </div>
+  </div>
+
+</div>

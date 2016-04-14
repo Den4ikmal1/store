@@ -1,0 +1,35 @@
+<div class="text-center">
+    <h3>Reviews:</h3></br>
+    <%= will_paginate review, renderer: BootstrapPagination::Rails %>
+  </div>
+ <% review.each do |r| %>
+ <div class="review_<%= r.id %>">
+  <div class="review">
+    <div class="review-rating" data-score="<%= r.rating %>"></div>
+    <p class="review-comment"><%= r.comment %></p>
+    <% if user_signed_in? %>
+      <% if can?(:update, Review) %>
+        <div class="links btn-group">
+          <%= link_to "Edit", edit_product_review_path(r.product, r), class: "btn btn-custom" %>
+          <%= link_to "Delete", product_review_path(r.product, r), method: :delete, data: { confirm: "Are you sure?" }, remote: true, class: "btn btn-custom" %>
+        </div>     
+      <% end %> 
+    <% end %>
+  </div>
+ </div> 
+<% end %>
+<%= render "reviews/form" %>
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script
+
+
+         
+

@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-4">
+    <% unless @product.photos.blank? %>
+      <%= image_tag @product.photos.first.file.url.to_s, class: "product-show" %>
+      
+        <% @product.photos.each do |p| %>
+          <a href="/products/<%= @product.id %>">
+          <%= image_tag p.file.url.to_s, class: "photo" %>
+          </a>
+        <% end %>
+    <% end %> 
+  </div>
+
+  <div class="col-md-8">
+    <div class="product-info">
+      <h2> <%= @product.title %> </h2>
+      <h4>Category: <br><%= @product.category.name %> </h4>
+      <h2>Average Rating</h2>
+      <% unless @average_review.nil? %>
+        <div class="average-review-rating" data-score=<%= @average_review %>></div>
+      <% end %>
+      <h4>Description: </h4>
+      <h5> <%= @product.description %></h5>
+      <h4>Price:</h4>
+      <h4><%= number_to_currency(@product.price) %> </h4>
+    </div>
+  </div>
+  <div class="add_to_cart">
+     <%= button_to 'Add to Cart', line_items_path(product_id: @product),  class: "btn btn-custom" %>
+  </div>
+</div>
+<% if  can?(:create, Product) %>
+  <div class="admin-option">
+    <%= link_to "Edit", edit_product_path(@product), class: "btn btn-custom" %>
+    <%= link_to "Delete", product_path(@product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+  </div>
+<% end %>
+
+  <div class="row">
+    <div class="col-xs-11">
+      <div class="reviews" id="reviewss">
+        <%= render 'products/review', review: @reviews %>
+         
+      </div>  
+    </div>
+  </div> 
+ 
+
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>
+<script>
+$(function(){
+   $('.pagination a').attr('data-remote', 'true')
+});
+</script>

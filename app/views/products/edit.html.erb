@@ -1,0 +1,21 @@
+<div class="col-md-6 col-md-offset-3">
+
+  <div class="new-product-form">
+
+    <h1>Edit Product</h1>
+
+    <%= simple_nested_form_for @product, :html => { :multipart => true } do |f| %>
+      <%= f.error_notification %>
+      <%= f.select :category_id, @categories %>
+      <%= f.input :title, label: "Product Title" %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.fields_for :photos, @product.photos.build do |a| %>
+        <%=  a.file_field :file, multiple: true, name: "product[photos_attributes][][file]" %>
+        <% end %>
+      <%= f.button :submit, :class => 'btn-custom2' %>
+    <% end %>
+
+  </div>
+
+</div>
