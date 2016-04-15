@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :orders, expext: [:index, :show]
+  resources :orders, except: [:index, :show]
   devise_for :users
   resources :products do
-    resources :reviews, expext: [:index]
+    resources :reviews, except: [:index]
   end
 
-  resources :line_items, expext: [:index]
-  resources :carts, expext: [:index]
+  resources :line_items, except: [:index]
+  resources :carts, except: [:index]
   resources :categories
   root 'products#index'
  
