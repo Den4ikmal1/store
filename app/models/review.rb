@@ -5,4 +5,6 @@ class Review < ActiveRecord::Base
 
   validates :rating, :comment, presence: true
   validates :product_id, uniqueness: {scope: :user_id,  message: "You already voted"}
+
+  
 end

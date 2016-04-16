@@ -11,19 +11,18 @@ class ProductsController < ApplicationController
   def index
     if params[:category].blank?
       @search = Product.ransack(params[:q])
-      @products = @search.result.paginate(page: params[:page], per_page: 8).includes(:photos)
+      search_products(@search)
     else  
       @category_id = Category.find_by(name: params[:category]).id
       @search = Product.where(category_id: @category_id).ransack(params[:q])
-      @products = @search.result.paginate(page: params[:page], per_page: 8).includes(:photos)
+      search_products(@search)
     end
     respond_with(@products)   
   end
 
   def show
-    @reviews = @product.reviews.paginate(:page => params[:page], :per_page => 4)
-    @average_review = 0 if @product.reviews.blank?
-    @average_review ||= @product.reviews.average(:rating).round(2) 
+    @reviews = @product.reviews.paginate(page: params[:page], per_page: 4)
+    @average_review = @product.average_review(@reviews)
     respond_with(@product)  
   end
 
@@ -67,6 +66,10 @@ class ProductsController < ApplicationController
     end
     def categories_load
       @categories = Category.find_each.map{ |c| [c.name, c.id]}
+    end
+
+    def search_products(search)
+      @products = search.result.paginate(page: params[:page], per_page: 8).includes(:photos)
     end
  
 
