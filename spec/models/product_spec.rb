@@ -24,7 +24,6 @@ RSpec.describe Product, type: :model do
 
     context 'if in review rating exist' do
       let!(:review)  { create(:review, product: product)}
-      let(:build)    { product.reviews }
       it 'should to be average rating in review' do
         expect(product.average_review(build)).to eq(review.rating)
       end

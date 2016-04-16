@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(review_params.merge(user: current_user, product: @product))
+    @review = @product.reviews.create(review_params.merge(user: current_user, product: @product))
     respond_with(@review) do |format|
       format.html { redirect_to @product }
     end
