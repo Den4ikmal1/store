@@ -21,9 +21,6 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def average_review(reviews)
-    average_review = 0 if reviews.blank?
-    average_review ||= reviews.average(:rating).round(2)
-  end
+ 
 
 end

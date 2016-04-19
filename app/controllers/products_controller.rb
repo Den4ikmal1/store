@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   def show
     @reviews = @product.reviews.paginate(page: params[:page], per_page: 4)
-    @average_review = @product.average_review(@reviews)
+    @average_review = Review.average_review(@product)
     respond_with(@product)  
   end
 
