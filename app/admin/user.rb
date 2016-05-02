@@ -24,7 +24,8 @@ ActiveAdmin.register User do
     end
  
     filter :email
- 
+    filter :role, label: 'admin'
+
     form do |f|
         f.inputs "User Details" do
             f.input :email
@@ -34,5 +35,6 @@ ActiveAdmin.register User do
         end
         f.actions
     end
+
 
 end
