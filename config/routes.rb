@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+
+  ActiveAdmin.routes(self)
   resources :orders, except: [:index, :show]
   devise_for :users
   resources :products do

@@ -34,6 +34,7 @@ gem 'jquery-ui-rails'
 gem 'cancancan'
 gem 'ransack'
 gem 'phony_rails'
+gem 'activeadmin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
