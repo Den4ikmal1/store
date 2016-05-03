@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.nestedSortable
+//= require sortable_tree/initializer
 //= require jquery-ui/effect-blind
 //= require bootstrap-sprockets
 //= require jquery_nested_form

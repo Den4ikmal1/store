@@ -1,5 +1,8 @@
 class Category < ActiveRecord::Base
-  
+  acts_as_nested_set
+  include TheSortableTree::Scopes
+
+  default_scope -> { order 'lft ASC' } 
   has_many :products
 
   validates :name, presence: true

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   resources :line_items, except: [:index]
   resources :carts, except: [:index]
-  resources :categories
+  resources :categories do
+    collection do
+      get :manage
+    end
+  end
   root 'products#index'
  
   # The priority is based upon order of creation: first created -> highest priority.

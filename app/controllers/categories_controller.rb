@@ -1,9 +1,18 @@
 class CategoriesController < ApplicationController
 
-  before_action :find_categoty, only: [:edit, :update, :destroy]
+  before_action :find_categoty, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!
+  before_action :categories_load, only: [:new, :create, :edit, :update]
 
-  authorize_resource
+  include TheSortableTreeController::Rebuild
+
+  def manage
+    @categories = Category.nested_set.select('id, name, parent_id, title').all
+  end
+  def show
+    
+  end
+
   
   def index
     @categories = Category.all
@@ -22,6 +31,10 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
+   
   end
 
   def update
@@ -43,5 +56,8 @@ class CategoriesController < ApplicationController
     end
     def find_categoty
       @category = Category.find(params[:id])
+    end
+    def categories_load
+      @categories = Category.find_each.map{ |c| [c.name, c.parent_id]}
     end
 end

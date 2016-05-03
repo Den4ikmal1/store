@@ -1,0 +1,8 @@
+<% content_tag :li, :id => dom_id(menu) do %>
+  <span class="handle"><%= menu.name %></span>    
+  <% content_tag :ul do %>
+   <% for child in menu.children do %>
+    <%= render :partial => "tree", :locals => {:menu => child }%>
+   <% end %>
+  <% end unless menu.leaf? %>
+ <% end %>
