@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
   has_many :line_items
 
   default_scope -> { order "created_at" }
+  scope :expensive_price, -> { where("price > 300")}
+
 
   validates :title, :category_id, presence: true
   before_destroy :ensure_not_referenced_by_any_line_item

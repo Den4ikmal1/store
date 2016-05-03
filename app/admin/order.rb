@@ -1,5 +1,5 @@
 ActiveAdmin.register Order do
-
+  permit_params :name, :address, :phone
   index do
     column :id
     column :name

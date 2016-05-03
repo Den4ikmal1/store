@@ -13,7 +13,7 @@ ActiveAdmin.register User do
 #   permitted
 # end
   permit_params :email, :password, :password_confirmation, :role
- 
+    
     index do
         column :email
         column :current_sign_in_at
