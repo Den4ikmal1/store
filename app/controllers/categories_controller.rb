@@ -6,9 +6,6 @@ class CategoriesController < ApplicationController
 
   include TheSortableTreeController::Rebuild
 
-  def manage
-    @categories = Category.nested_set.select('id, name, parent_id, title').all
-  end
   def show
     
   end
