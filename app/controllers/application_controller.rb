@@ -4,11 +4,17 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html
 
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+ 
   protect_from_forgery with: :exception
   helper_method :current_cart
 
+  def remote_ip
+    if request.remote_ip == '127.0.0.1'
+      '5.149.208.0'
+    else
+      request.remote_ip
+    end
+  end
 
   def authenticate_active_admin_user!
    authenticate_user!

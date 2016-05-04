@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   def role?(r)
     role.include? r.to_s
   end
+
+  def self.found_country(ipaddress)
+    geo = Maxminddb.lookup(ipaddress)
+      if geo.found?
+        geo.country.name
+      end
+  end
 end

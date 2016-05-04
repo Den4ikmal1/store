@@ -12,7 +12,9 @@ class CategoriesController < ApplicationController
 
   
   def index
-    @categories = Category.all
+    clieint_ip = remote_ip
+    @country_name = User.found_country(clieint_ip)
+    @categories = Category.nested_set.all
   end
   def new
     @category = Category.new
