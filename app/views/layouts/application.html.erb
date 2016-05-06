@@ -45,10 +45,6 @@
         </li>
         
         <li id="test"><%= render 'layouts/cart_text' %> </li>
-        <% if  can?(:create, Product) %>
-          <li><%= link_to "Add clothe", new_product_path %></li>
-          <li><%= link_to "Add new category", new_category_path %></li>
-        <% end %>
         
       </ul>
 

@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-  permit_params :title, :price
+  permit_params :title, :price, :description, :category_id, :photos
   scope :expensive_price
   scope :all
   index do
@@ -16,6 +16,25 @@ ActiveAdmin.register Product do
   filter :category
   filter :title
   filter :price
+
+  form do |f|
+    f.inputs "Details" do
+      f.input :title
+      f.input :description
+      f.input :price
+      f.input :category
+    end
+    f.has_many :photos do |s|
+        s.input :file, :as => :file
+    end
+    f.actions
+  end
+  controller do
+    def permitted_params
+      params.permit :utf8, :authenticity_token, :commit, product: [:title, :description, :price, :category_id, photos_attributes: [:file]]
+    end
+  end
+   
 
   controller do
     def scoped_collection
