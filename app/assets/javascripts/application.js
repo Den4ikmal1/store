@@ -18,4 +18,6 @@
 //= require bootstrap-sprockets
 //= require jquery_nested_form
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree .

@@ -16,3 +16,6 @@
 
 /.vagrant
 
+/config/database.yml
+/config/secrets.yml
+

@@ -1,0 +1,18 @@
+<%= simple_form_for @city do |f|%>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="new-form"><br>
+      <%= f.simple_fields_for :cities_name do |setting| %>
+        <%= setting.input :city1, label: "input your city from"  %>
+        <%= setting.input :city2, label: "input your city to" %>
+      <% end %>
+      </div>
+      <div class="new-form"><br>
+      <%= f.simple_fields_for :cities_midrange do |setting| %>
+        <%= setting.input :city1, label: "add city" %>
+        <%= setting.input :city2, label: "add city" %>
+      <% end %>
+      </div> 
+  <%= f.button :submit, :class => 'btn-custom2' %>
+<% end %>
