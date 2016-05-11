@@ -41,6 +41,7 @@ gem "the_sortable_tree", "~> 2.5.0"
 gem 'maxminddb'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'nokogiri', '~> 1.6.7.2.rc2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -64,7 +65,11 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-passenger'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

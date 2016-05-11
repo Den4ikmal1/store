@@ -80,6 +80,14 @@ test:
 #
 production:
   <<: *default
-  database: store_production
-  username: store
-  password: <%= ENV['STORE_DATABASE_PASSWORD'] %>
+  production:
+  adapter: postgresql
+  timeout: 5000
+  encoding: utf8
+  reconnect: false
+  database: deploy_sample_production
+  pool: 5
+  username: deploy_sample
+  password: secret
+  host: localhost
+  port: 5432

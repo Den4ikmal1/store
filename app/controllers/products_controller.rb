@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   
   respond_to :html, :js
 
-  authorize_resource
+  
 
   def index
     if params[:category].blank?
