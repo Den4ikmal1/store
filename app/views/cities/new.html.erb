@@ -1,0 +1,11 @@
+<%= simple_form_for( @city) do |f|%>
+    <%= f.error_notification %>
+      <div class="col-md-3">
+        <div class="new-form"><br>
+        <%= f.simple_fields_for :cities_main do |setting| %>
+          <%= setting.input :city1, label: "input your city from"  %>
+          <%= setting.input :city2, label: "input your city to" %>
+        <% end %>
+        </div>
+    <%= f.button :submit, :class => 'btn-custom2' %>
+  <% end %>

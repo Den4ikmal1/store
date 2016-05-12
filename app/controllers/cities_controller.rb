@@ -1,4 +1,7 @@
 class CitiesController < ApplicationController
+  def new
+    @city = City.new 
+  end
   def create
     @cities_main = params[:city][:cities_main]
     if params[:city][:cities_midrange] 

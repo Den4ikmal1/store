@@ -10,5 +10,5 @@ namespace :deploy do
     end
   end
 
-  after 'deploy:migrate', 'deploy:seed'
+  # after 'deploy:migrate', 'deploy:seed'
 end
