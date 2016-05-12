@@ -41,7 +41,6 @@ gem "the_sortable_tree", "~> 2.5.0"
 gem 'maxminddb'
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'nokogiri', '~> 1.6.7.2.rc2'
 gem 'nested_form_fields'
 
 # Use ActiveModel has_secure_password

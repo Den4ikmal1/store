@@ -318,7 +318,6 @@ DEPENDENCIES
   maxminddb
   nested_form
   nested_form_fields
-  nokogiri (~> 1.6.7.2.rc2)
   pg (~> 0.15)
   phony_rails
   rails (= 4.2.6)
