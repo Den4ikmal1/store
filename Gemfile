@@ -42,6 +42,7 @@ gem 'maxminddb'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'nokogiri', '~> 1.6.7.2.rc2'
+gem 'nested_form_fields'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

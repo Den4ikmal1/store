@@ -1,12 +1,9 @@
 class RichMarkerBuilder extends Gmaps.Google.Builders.Marker 
 
-
-@buildMap = (cities_name)-> 
+@buildMap = (cities_name) -> 
   directionsDisplay = new (google.maps.DirectionsRenderer)
   directionsService = new (google.maps.DirectionsService)
 
- 
-  
   calcRoute = (city_from, city_to, waypts) ->
     request = 
       origin: city_from
@@ -39,5 +36,3 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker
   handler.buildMap { internal: id: 'directions' }, ->
     directionsDisplay.setMap handler.getMap()
     return
-
- 

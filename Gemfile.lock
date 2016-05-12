@@ -168,6 +168,10 @@ GEM
     minitest (5.8.4)
     multi_json (1.11.2)
     nested_form (0.3.2)
+    nested_form_fields (0.7.4)
+      coffee-rails (>= 3.2.1)
+      jquery-rails
+      rails (>= 3.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.1.1)
@@ -313,6 +317,7 @@ DEPENDENCIES
   jquery-ui-rails
   maxminddb
   nested_form
+  nested_form_fields
   nokogiri (~> 1.6.7.2.rc2)
   pg (~> 0.15)
   phony_rails

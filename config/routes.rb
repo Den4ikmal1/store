@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, except: [:index]
   end
-  resources :cities
+  resources :cities do
+    get 'search', on: :collection
+  end
 
   resources :line_items, except: [:index]
   resources :carts, except: [:index]
   resources :categories 
   root 'products#index'
+
+
  
 end
