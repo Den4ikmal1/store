@@ -19,7 +19,7 @@
 //= require jquery_nested_form
 //= require turbolinks
 //= require nested_form_fields
-//= require underscore
 //= require gmaps/google
+//= require underscore
 //= require_tree .
 
