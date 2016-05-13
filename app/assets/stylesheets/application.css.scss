@@ -33,6 +33,14 @@
 }
 /* General styles */
 
+form label.error{
+    font:10px Tahoma,sans-serif;
+    color:#ED7476;
+    margin-left:5px;
+    display:inline;
+    font-size: 16px;
+}
+
 body {
  margin-top:70px;
   background-color: #fff; 

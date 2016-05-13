@@ -19,7 +19,20 @@
 //= require jquery_nested_form
 //= require turbolinks
 //= require nested_form_fields
-//= require gmaps/google
 //= require underscore
+//= require gmaps/google
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
 
+ $(document).ready(function () {
+    $("#new_city").validate({
+    debug: true,
+      rules: {
+        "city[cities_main][city_first]": {required: true}
+      },
+      messages: {
+        "city[cities_main][city_first]": "Please input your city"
+      }
+    });
+  });

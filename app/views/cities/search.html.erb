@@ -10,20 +10,15 @@
   <%= simple_form_for( @city, remote: true) do |f|%>
     <%= f.error_notification %>
       <div class="col-md-3">
-        <div class="new-form"><br>
         <%= f.simple_fields_for :cities_main do |setting| %>
-          <%= setting.input :city1, label: "input your city from"  %>
-          <%= setting.input :city2, label: "input your city to" %>
-        <% end %>
-        </div>
-        <div class="new-form"><br>
-        <%= f.simple_fields_for :cities_midrange do |setting| %>
-          <%= setting.input :city1, label: "add city" %>
-          <%= setting.input :city2, label: "add city" %>
-          <%= setting.input :city3, label: "add city" %>
-          <%= setting.input :city4, label: "add city" %>
-        <% end %>
-        </div> 
-    <%= f.button :submit, :class => 'btn-custom2' %>
+          <div class="new-point">
+            <%= setting.input :city_first, label: "input your city from"  %>
+          </div><br>
+         <% end %>
+    <%= f.button :submit, "Create way", :class => 'btn-custom2' %>
   <% end %>
+  <%= link_to 'add Point', '/add_to', id: "hello", remote: true, :class => 'btn-custom' %>
 </div>
+
+
+

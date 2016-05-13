@@ -1,3 +1,12 @@
+$ ->
+  $("#hello").on 'ajax:success', (e, data, status, xhr) ->
+    $('.new-point').append data
+
+  $("#delete").on "click", () ->
+    $(".lol").remove();
+
+    
+
 class RichMarkerBuilder extends Gmaps.Google.Builders.Marker 
 
 @buildMap = (cities_name) -> 
@@ -19,18 +28,20 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker
 
   calculateAndDisplayRoute = (cities_name) ->
     waypts = []
-    i = 2
-    while i < cities_name.length
+    i = 1
+    while i < cities_name.length - 1
       waypts.push
         location: cities_name[i]
         stopover: true
       i++
     waypts
   
-  i = 0
-  while i < cities_name.length
-    calcRoute cities_name[0], cities_name[1], calculateAndDisplayRoute cities_name
-    i++
+
+  if cities_name.length == 1
+    calcRoute cities_name[0], cities_name[cities_name.length - 1]
+  else
+    calcRoute cities_name[0], cities_name[cities_name.length - 1], calculateAndDisplayRoute cities_name
+     
 
   handler = Gmaps.build('Google')
   handler.buildMap { internal: id: 'directions' }, ->

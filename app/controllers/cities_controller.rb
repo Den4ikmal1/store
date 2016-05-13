@@ -3,13 +3,11 @@ class CitiesController < ApplicationController
     @city = City.new 
   end
   def create
-    @cities_main = params[:city][:cities_main]
-    if params[:city][:cities_midrange] 
-      @cities_midrange = params[:city][:cities_midrange] 
-      a =  City.get_cities_names(@cities_main) | City.get_cities_names(@cities_midrange)
+    if params[:city][:cities_main][:city_first].blank?
+      render :search
     else
-      a ||=  City.get_cities_names(@cities_main)
-    end
+      @cities_main = params[:city][:cities_main] 
+      a =  City.get_cities_names(@cities_main) 
       @city = City.new(cities_name: a)
     respond_to do |format|
       if @city.save
@@ -18,7 +16,7 @@ class CitiesController < ApplicationController
         render :search
       end
     end
-      
+    end  
   end
 
   def search
@@ -26,5 +24,14 @@ class CitiesController < ApplicationController
     city = City.last
     @cities_name = city.cities_name
   end
+  
+  def add_to
+    render layout: false
+  end
+
+  def delete
+  end
+
+
 
 end
