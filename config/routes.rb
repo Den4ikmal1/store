@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   get 'add_to' => "cities#add_to"
-  get 'delete' => "cities#delete"
+  delete 'delete' => "cities#delete"
 
   resources :line_items, except: [:index]
   resources :carts, except: [:index]

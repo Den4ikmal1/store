@@ -34,13 +34,17 @@
 /* General styles */
 
 form label.error{
-    font:10px Tahoma,sans-serif;
-    color:#ED7476;
-    margin-left:5px;
-    display:inline;
-    font-size: 16px;
+    font:17px Tahoma,sans-serif;
+    color:#ED7979;
+    display:block;
+    width:100%;
+ }
+.point-delete{
+  margin-top:15px;
 }
-
+.point-add{
+  margin-top:15px;
+}
 body {
  margin-top:70px;
   background-color: #fff; 

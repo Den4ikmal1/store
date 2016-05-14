@@ -25,14 +25,18 @@
 //= require jquery.validate.additional-methods
 //= require_tree .
 
- $(document).ready(function () {
-    $("#new_city").validate({
-    debug: true,
-      rules: {
-        "city[cities_main][city_first]": {required: true}
-      },
-      messages: {
-        "city[cities_main][city_first]": "Please input your city"
-      }
+$(document).ready(function () {
+
+
+  $('#new_city').validate();
+        $('input[type="text"]').each(function () {
+        $(this).rules('add', {
+            required: true,
+            messages: { 
+              required:  "Please input your city.."
+          }
+        });
     });
-  });
+
+});
+

@@ -2,10 +2,11 @@ $ ->
   $("#hello").on 'ajax:success', (e, data, status, xhr) ->
     $('.new-point').append data
 
-  $("#delete").on "click", () ->
-    $(".lol").remove();
+  $('.point-delete').on 'click', (e) ->
+    e.preventDefault()
+    $('.lol').last().remove()
+    return
 
-    
 
 class RichMarkerBuilder extends Gmaps.Google.Builders.Marker 
 
