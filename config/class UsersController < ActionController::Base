@@ -1,0 +1,11 @@
+class UsersController < ActionController::Base
+  def create
+    # params = {name: 'User', email: 'test@ex.com'}
+    service = Services::Users::Create.new(params)
+    service.call
+    if service.success?\
+      return status: 201
+    else
+    end
+  end
+end

@@ -1,7 +1,9 @@
 class CitiesController < ApplicationController
+  
   def new
     @city = City.new 
   end
+  
   def create
     if params[:city][:cities_main][:city_first].blank?
       render :search

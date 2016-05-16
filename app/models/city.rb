@@ -1,6 +1,7 @@
 class City < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode 
+  LOX = [ "VALUE", "CITY"]
  
   def self.get_cities_names(cities)
     array = []

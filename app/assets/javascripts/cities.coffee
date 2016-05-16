@@ -1,6 +1,7 @@
 $ ->
   $("#hello").on 'ajax:success', (e, data, status, xhr) ->
     $('.new-point').append data
+    
 
   $('.point-delete').on 'click', (e) ->
     e.preventDefault()
@@ -14,7 +15,8 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker
   directionsDisplay = new (google.maps.DirectionsRenderer)
   directionsService = new (google.maps.DirectionsService)
 
-  calcRoute = (city_from, city_to, waypts) ->
+
+  calcRoute = (city_from, city_to, waypts) -> 
     request = 
       origin: city_from
       destination: city_to

@@ -1,4 +1,11 @@
 <div class="row">
+ <% unless  @cities_name.nil? %>
+  <div class="col-md-9">
+    <div id ="map">
+      <%= render 'google' %>
+    </div>
+  </div>
+ <% end %> 
   <%= simple_form_for( @city, remote: true) do |f|%>
     <%= f.error_notification %>
       <div class="col-md-3">
@@ -15,13 +22,6 @@
   <div class="point-delete">
    <%= link_to "Delete point", "/delete", id: "delete", method: :delete,  remote: true,  :class => 'btn btn-danger'%>
   </div>
- <% unless  @cities_name.nil? %>
-  <div class="col-md-9">
-    <div id ="map">
-      <%= render 'google' %>
-    </div>
-  </div>
-<% end %> 
   
 </div>
 
